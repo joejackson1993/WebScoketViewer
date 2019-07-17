@@ -7,6 +7,27 @@
 
 <h2>Request URL: {{request._parsedURL.url}}</h2>
 
-<!-- TODO make a table...-->
+<!-- TODO make a list..-->
+<h2>Request Frames</h2>
+<mat-table #table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef> type </mat-header-cell>
+    <mat-cell *matCellDef="let frame">{{frame.type}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="text">
+    <mat-header-cell *matHeaderCellDef> text </mat-header-cell>
+    <mat-cell *matCellDef="let frame">{{frame.text}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="time">
+    <mat-header-cell *matHeaderCellDef> time </mat-header-cell>
+    <mat-cell *matCellDef="let frame">{{frame.time}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
 
 <!-- TODO make an input data button...-->
