@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { REQUEST } from '../data/mockRequest';
 import { MatTableDataSource } from '@angular/material';
 
-const FRAME_DATA: Frame[] = [
-  { time: '1563369677.115286', type: 'send', text: 'john@gmail.com' },
-  { time: '1563369677.314347', type: 'send', text: 'mike@gmail.com' }
-];
+// probably need to pull this out into a service at some point and actually contruct the right objects from the json.
+const FRAME_DATA: any[] = formatFrames(REQUEST._frames);
+
 
 @Component({
   selector: 'app-root',
@@ -17,15 +16,22 @@ export class AppComponent {
   version = '0.1';
 
   request = REQUEST;
-  displayedColumns = ['type', 'text', 'time'];
+  displayedColumns = ['time', 'type', 'channel', 'clientId', 'successful', 'subscription', 'text'];
   dataSource = new MatTableDataSource(FRAME_DATA);
 }
 
-export interface Frame {
-  // TODO make time a date and format it.
-  time: string;
-  type: string;
-  text: string;
+function formatFrames(frames: any) {
+
+  const formattedFrames = frames.map(frame => {
+    return {
+      time: frame.time,
+      type: frame.type,
+      channel: JSON.parse(frame.text)[0].channel,
+      clientId: JSON.parse(frame.text)[0].clientId,
+      successful: JSON.parse(frame.text)[0].successful,
+      subscription: JSON.parse(frame.text)[0].subscription,
+      text: frame.text
+    };
+  });
+  return formattedFrames;
 }
-
-
