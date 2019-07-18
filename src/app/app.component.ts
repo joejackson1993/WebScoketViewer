@@ -30,7 +30,7 @@ function formatFrames(frames: any) {
       clientId: JSON.parse(frame.text)[0].clientId,
       successful: JSON.parse(frame.text)[0].successful,
       subscription: JSON.parse(frame.text)[0].subscription,
-      text: frame.text
+      text: JSON.parse(frame.text)
     };
   });
   return formattedFrames;

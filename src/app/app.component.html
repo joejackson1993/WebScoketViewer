@@ -42,9 +42,10 @@
   </ng-container>
 
   <ng-container matColumnDef="text">
-    <mat-header-cell *matHeaderCellDef> Text </mat-header-cell>
-    <mat-cell *matCellDef="let frame">{{frame.text}}</mat-cell>
+    <mat-header-cell *matHeaderCellDef> Frame Content </mat-header-cell>
+    <mat-cell *matCellDef="let frame"><ngx-json-viewer [json]="frame.text" [expanded]="false"></ngx-json-viewer></mat-cell>
   </ng-container>
+
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
