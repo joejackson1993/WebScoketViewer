@@ -5,14 +5,16 @@
   </h1>
 </div>
 
+<button mat-raised-button	>Import Web Scoket JSON</button>
+
 <h2>Request URL: {{request._parsedURL.url}}</h2>
 
 <!-- TODO make a list..-->
 <h2>Request Frames</h2>
-<mat-table #table [dataSource]="dataSource">
+<mat-table [dataSource]="dataSource" matSort>
 
   <ng-container matColumnDef="time">
-    <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Time </mat-header-cell>
     <mat-cell *matCellDef="let frame">{{frame.time}}</mat-cell>
   </ng-container>
 

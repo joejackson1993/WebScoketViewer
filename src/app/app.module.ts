@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +15,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     MaterialModule,
-    NgxJsonViewerModule
+    NgxJsonViewerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
