@@ -1,0 +1,19 @@
+.mat-cell{
+    padding: 7px
+}
+
+.mat-row {
+    min-height: 45px;
+}
+
+.mat-column-text {
+  flex: 3;
+}
+
+.mat-column-type {
+  flex: .5;
+}
+
+.mat-column-successful {
+  flex: .3;
+}
